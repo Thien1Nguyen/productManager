@@ -1,22 +1,38 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ProductForm = () => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [loaded, setLoaded] = useState(false);
 
     const [productsList, setProductsList] = useState([])
+
+
+    // const sendFetch = ()=>{
+    //     axios.get(`http://localhost:8000/api/products`)
+    //     .then((response) => {
+    //         setProductsList(response.data.results) 
+    //     })
+    //     .catch((err) => {
+    //         console.log("Them Errors: ", err)
+    //     })
+    // };
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/products`)
         .then((response) => {
-            setProductsList(response.data.results) 
+            setProductsList(response.data.results)
+            setLoaded(true); 
         })
         .catch((err) => {
             console.log("Them Errors: ", err)
         })
     }, []);
+
+    
 
 
 
@@ -30,6 +46,7 @@ const ProductForm = () => {
         })
         .then((res => console.log(res)))
         .catch(err => console.log(err))
+
 
         setTitle("");
         setPrice("");
@@ -62,7 +79,9 @@ const ProductForm = () => {
                 {
                     productsList.map((item, i) =>{
                         return(
-                        <p key={i}>{item.title}</p>
+                        <div>
+                            <Link key={i} to={`/${item._id}`}>{item.title}</Link> 
+                        </div>
                         )
                     })
                 }

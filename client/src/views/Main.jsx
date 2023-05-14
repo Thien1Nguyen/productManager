@@ -4,6 +4,7 @@ import {
     Route,
 } from "react-router-dom"
 import ProductForm from "../components/ProductForm";
+import ProductDisplay from "../components/ProductDisplay";
 
 const Main = () => {
     
@@ -11,6 +12,7 @@ const Main = () => {
         <div>
             <Routes>
                 <Route path="/" element={<ProductForm />} />
+                <Route path="/:id" element={<ProductDisplay/>} />
             </Routes>
         </div>
     )
