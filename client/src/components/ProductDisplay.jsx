@@ -10,7 +10,7 @@ const ProductDisplay = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/products/${id}`)
             .then((response) => {
-                console.log(response.data.results)
+                // console.log(response.data.results)
                 setProduct(response.data.results)
             })
             .catch((err) => {
@@ -20,18 +20,18 @@ const ProductDisplay = (props) => {
 
     return (
         <div>
+            <Link to={"/"} className='btn btn-outline-primary'>Home</Link> 
             {
                 product.map((item, i) => {
                     return (
                         <div className='container text-center' key = {i}>
-                            <h1>{item.title}</h1>
-                            <p>Price: {item.price}</p>
-                            <p>Description: {item.description}</p>
+                            <h1 className='mb-5'>{item.title}</h1>
+                            <p> <span className='fw-bolder'> Price: $</span>  {item.price}</p>
+                            <p><span className='fw-bolder'>Description: </span> {item.description}</p>
                         </div>
                     )
                 })
             }
-            <Link to={"/"}>Home</Link> 
         </div>
     )
 }

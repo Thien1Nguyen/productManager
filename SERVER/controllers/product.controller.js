@@ -30,7 +30,7 @@ module.exports.updateProduct = (req,res) =>{
 
 //delete a Product with id
 module.exports.deleteProduct = (req,res) =>{
-    Songs.deleteOne({_id: req.params.id})
+    Products.deleteOne({_id: req.params.id})
     .then(deleteProduct => {res.json({results: deleteProduct})})
     .catch(err => res.json({err: err}))
 }

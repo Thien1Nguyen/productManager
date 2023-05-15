@@ -11,7 +11,7 @@ module.exports = (app) => {
     app.post('/api/products/new', ProductController.createProduct)
 
     //update Product
-    app.put('api/products/update/:id', ProductController.updateProduct)
+    app.put('/api/products/update/:id', ProductController.updateProduct)
 
     //delete Product
     app.delete('/api/products/delete/:id', ProductController.deleteProduct)
