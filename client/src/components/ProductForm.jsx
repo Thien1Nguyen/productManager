@@ -54,15 +54,15 @@ const ProductForm = () => {
                 <form style={{ width: 300 }} onSubmit={handleSubmit}>
                     <p className='text-bg-secondary p-2 d-flex justify-content-between'>
                         <label className='form-label me-2'>Title: </label>
-                        <input className='form-control-sm' type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+                        <input className='form-control-sm' type="text" name = "title" onChange={(e) => setTitle(e.target.value)} value={title} />
                     </p>
                     <p className='text-bg-secondary p-2 d-flex justify-content-between'>
                         <label className='form-label me-2'>Price: </label>
-                        <input className='form-control-sm' type="number" onChange={(e) => setPrice(parseInt(e.target.value))} value={price} />
+                        <input className='form-control-sm' type="number" name = "price" onChange={(e) => setPrice(parseInt(e.target.value))} value={price} />
                     </p>
                     <p className='text-bg-secondary p-2 d-flex justify-content-between'>
                         <label className='form-label me-2'>Description: </label>
-                        <input className='form-control-sm' type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
+                        <input className='form-control-sm' type="text" name = "description" onChange={(e) => setDescription(e.target.value)} value={description} />
                     </p>
                     <button className='mt-3 btn btn-danger btn-center'>Create</button>
                 </form>
